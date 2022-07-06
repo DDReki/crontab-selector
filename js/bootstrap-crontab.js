@@ -1,4 +1,8 @@
-/* bootstrap-crontab.js v 1.0.0 | © 2022 for DDReki | https://github.com/DDReki/bootstrap-crontab.git */
+/*! 
+    | bootstrap-crontab.js v 1.0.0 |
+    | © 2022 for d-Reki | 
+    | https://github.com/d-reki/crontab-selector |
+*/
 (function ($) {
     // creat cron main element
     $.crontabSelector = function () {
