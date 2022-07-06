@@ -2,7 +2,7 @@
 使用bootstrap popover弹窗生成cron表达式<a href="./crontab.html" alt="链接"> crontab.html</a>
 ***
 ### 一 、环境
-    1、基于 bootstrap v5.0 
+    1、bootstrap v5.0 
     2、jquery v3.6
     ...
 ### 二、案例

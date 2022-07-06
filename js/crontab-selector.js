@@ -1,4 +1,8 @@
-/* bootstrap-crontab.js v 1.0.0 | © 2022 for DDReki | https://github.com/DDReki/bootstrap-crontab.git */
+/*! 
+    | crontab-selector.js v 1.0.1 |
+    | © 2022 for d-reki | 
+    | https://github.com/d-reki/crontab-selector |
+*/
 (function ($) {
     // creat cron main element
     $.crontabSelector = function () {
@@ -134,7 +138,7 @@
     var calculateInput = function(min_num,max_num){
         var addreduceElement = $("<div/>",{"class":"input-group","id":"addReduce","style":"width:100px;"})
         $("<button/>",{"class":"btn btn-secondary btn-sm","type":"button","id":"reduceNum"}).html($('<i class="fa fa-chevron-left" aria-hidden="true"></i>')).appendTo(addreduceElement);
-        $("<input/>",{"class":"form-control form-control-sm text-center","type":"text","value":min_num,"min":min_num,"max":max_num}).appendTo(addreduceElement);
+        $("<input/>",{"class":"form-control form-control-sm text-center","type":"text","value":min_num,"min":min_num,"max":max_num,"id":"limitInputNum"}).appendTo(addreduceElement);
         $("<button/>",{"class":"btn btn-secondary btn-sm","type":"button","id":"addNum"}).html($('<i class="fa fa-chevron-right" aria-hidden="true"></i>')).appendTo(addreduceElement);
         return addreduceElement
     };
@@ -183,7 +187,7 @@
         return result
     };
 
-    // radio click to cron select,get the value
+    // radio click to cron select,get the cron express value 
     $(document).on("click","#cron-radio-select",function(){
         var input_element = $(this).find("input").attr("id");
         $("#"+input_element).prop('checked',true);
@@ -225,6 +229,23 @@
 
     // number calculate
     var intervalId;
+    // limit input
+    $(document).on("input propertychange","#limitInputNum",function(){
+        let min_num = parseInt($(this).attr("min"));
+        let max_num = parseInt($(this).attr("max"));
+        let input_val_clean = parseInt($(this).val().replace(/[^\d]/g,""));
+        $(this).val(input_val_clean);
+        if (input_val_clean > max_num){
+            $(this).val(max_num);
+        }
+        if (input_val_clean < min_num){
+            $(this).val(min_num);
+        }
+        if (isNaN(input_val_clean)){
+            $(this).val('');
+        }
+
+    })
     // click reduce
     $(document).on("click","#reduceNum",function() {
         var reduce_result = parseInt($(this).parent().find("input").val()) - 1;

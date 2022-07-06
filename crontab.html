@@ -107,12 +107,16 @@
 	<!-- select multi js-->
 	<script src="./js/choices.min.js"></script>
 	<!-- cron v1 js-->
-	<script src="./js/bootstrap-crontab.js"></script>
+	<script src="./js/crontab-selector.js"></script>
 	<script>
+		function limitInputNum(obj){
+			console.log('dddd')
+		}
 		// start crontab-Selector
 		document.addEventListener("DOMContentLoaded",function(){
 			// ---------------------------------------------popover start-----------------------------------------------
-			// var element = document.getElementById("cronEdit"); bootstrap to model
+			// bootstrap to model
+			// var element = document.getElementById("cronEdit"); 
 			var element = document.getElementById("cronPopoverBtn");
 			var popover = new bootstrap.Popover(element,{
 				container: 'body',
