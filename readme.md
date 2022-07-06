@@ -6,6 +6,18 @@
     2、jquery v3.6
     ...
 ### 二、案例
+```html
+<div class="row" style="margin-top:30px;text-align:center;">
+    <div class="col-4 offset-4 row">
+        <div class="col-4 offset-2">
+            <button type="button" class="btn btn-outline-dark" id="cronPopoverBtn">cron btn</button>
+        </div>
+        <div class="col-6">
+            <input name="task_cron" id="task_cron" class="form-control form-control-line">
+        </div>
+    </div>
+</div> 
+```
 ```javascript
 // start crontab-Selector
 document.addEventListener("DOMContentLoaded",function(){
